@@ -47,14 +47,15 @@ resource "aws_security_group_rule" "https_ingress" {
 }
 
 module "access_logs" {
-  source     = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=tags/0.1.0"
-  attributes = "${var.attributes}"
-  delimiter  = "${var.delimiter}"
-  name       = "${var.name}"
-  namespace  = "${var.namespace}"
-  stage      = "${var.stage}"
-  tags       = "${var.tags}"
-  region     = "${var.access_logs_region}"
+  source        = "git::https://github.com/shushry/terraform-aws-s3-bucket.git"
+  attributes    = "${var.attributes}"
+  delimiter     = "${var.delimiter}"
+  name          = "${var.name}"
+  namespace     = "${var.namespace}"
+  stage         = "${var.stage}"
+  tags          = "${var.tags}"
+  region        = "${var.access_logs_region}"
+  force_destroy = "true"
 }
 
 resource "aws_lb" "default" {
