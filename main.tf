@@ -47,7 +47,7 @@ resource "aws_security_group_rule" "https_ingress" {
 }
 
 module "access_logs" {
-  source        = "git::https://github.com/shushry/terraform-aws-s3-bucket.git"
+  source        = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=tags/0.1.0"
   enabled	= "${var.access_logs_enabled}"
   attributes    = "${var.attributes}"
   delimiter     = "${var.delimiter}"
